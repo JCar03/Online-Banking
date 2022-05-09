@@ -8,6 +8,10 @@
           <div class="header-wrap">
 
             <app-login-status></app-login-status>
+            <app-login *ngIf="!isAuthenticated"></app-login>
+            <app-user-front *ngIf="isAuthenticated"></app-user-front>
+          
+          
 
          
 

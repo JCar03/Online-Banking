@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { OktaAuthService } from '@okta/okta-angular';
+import { AppComponent } from 'src/app/app.component';
+
+
 
 @Component({
   selector: 'app-login-status',
@@ -8,10 +11,11 @@ import { OktaAuthService } from '@okta/okta-angular';
 })
 export class LoginStatusComponent implements OnInit {
 
-  isAuthenticated: boolean = false;
+  isAuthenticated : AppComponent["isAuthenticated"];
+  setIsAuthenticated : AppComponent["setIsAuthenticated"];
   userFullName: string;
-
   storage: Storage = sessionStorage;
+  
 
   constructor(private oktaAuthService: OktaAuthService) { }
 
@@ -46,12 +50,12 @@ export class LoginStatusComponent implements OnInit {
           const theGroups = res['groups'];
           this.storage.setItem('isAdmin', theGroups.includes('Admin'));
 
+
           console.log(res);
         }
       );
     }
   }
-
   logout() {
     // Terminates the session with Okta and removes current tokens.
     this.oktaAuthService.signOut();
