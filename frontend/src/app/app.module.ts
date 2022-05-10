@@ -40,6 +40,7 @@ import { SavingsAccountComponent } from './components/savings-account/savings-ac
 import { ToSomeoneElseComponent } from './components/to-someone-else/to-someone-else.component';
 import { UserFrontComponent } from './components/user-front/user-front.component';
 import { WithdrawComponent } from './components/withdraw/withdraw.component';
+import { fromEvent } from 'rxjs';
 
 const oktaConfig = Object.assign({
   onAuthRequired: (oktaAuth, injector) => {
@@ -98,7 +99,7 @@ const routes: Routes = [
     HttpClientModule,
     NgbModule,
     ReactiveFormsModule,
-    OktaAuthModule
+    OktaAuthModule,
   ],
   providers: [{ provide: OKTA_CONFIG, useValue: oktaConfig },
               {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}],

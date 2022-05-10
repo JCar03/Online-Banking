@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { OktaAuthService } from '@okta/okta-angular';
+import { LoginStatusComponent } from './components/login-status/login-status.component';
+import { LoginStatusService } from './services/login-status.service';
 
 
 
@@ -9,21 +12,22 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-banking';
-  isAuthenticated: boolean = false;
-
-  public get getIsAuthenticated(): boolean {
-    return this.isAuthenticated;
-  }
-  public set setIsAuthenticated(value: boolean) {
-    this.isAuthenticated = value;
+  isAuthenticated: boolean;
+  constructor(private loginStatusService: LoginStatusService){
+    this.isAuthenticated = loginStatusService.subscribe();
   }
 
+  
+  
+  
+  
+  
+  
+  
+  
 
-  
-  
-  
 
-  
-  
-  
+
+
+
 }
