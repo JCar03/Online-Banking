@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-recipient',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecipientComponent implements OnInit {
 
+  recipientFormGroup: FormGroup;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onSubmit() {
+    console.log("Handling the submit button");
+  }
 }

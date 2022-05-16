@@ -8,13 +8,8 @@
           <div class="header-wrap">
 
             <app-login-status></app-login-status>
-            <app-user-front *ngIf="isAuthenticated"></app-user-front>
-            <app-login *ngIf="!isAuthenticated"></app-login>
-            
-          
-          
-
-         
+            <app-login *ngIf="!global.isAuthenticated && global.location.pathname=='/'"></app-login>
+            <app-user-front *ngIf="global.isAuthenticated && global.location.pathname=='/'"></app-user-front>
 
           </div>
           <div class="account-wrap"></div>

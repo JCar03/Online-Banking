@@ -1,10 +1,9 @@
-
 <div class="container">
     <div class="row main">
         <div class="col-md-6">
             <h2 class="title">My Profile</h2>
             <hr/>
-            <form method="post" th:action="@{/user/profile}">
+            <form [formGroup]="profileFormGroup" (ngSubmit)="onSubmit()">
                 <input type="hidden" name="id" th:value="${user.userId}"/>
 
                 <div class="form-group">
@@ -96,4 +95,3 @@
         </div>
     </div>
 </div>
-

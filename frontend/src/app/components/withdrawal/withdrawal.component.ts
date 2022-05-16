@@ -2,21 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-between-accounts',
-  templateUrl: './between-accounts.component.html',
-  styleUrls: ['./between-accounts.component.css']
+  selector: 'app-withdrawal',
+  templateUrl: './withdrawal.component.html',
+  styleUrls: ['./withdrawal.component.css']
 })
+export class WithdrawalComponent implements OnInit {
 
-export class BetweenAccountsComponent implements OnInit {
-
-  betweenAccountsFormGroup: FormGroup;
+  withdrawalFormGroup: FormGroup;
 
   constructor() { }
 
   ngOnInit(): void {
   }
-  
+
   onSubmit() {
     console.log("Handling the submit button");
   }
+
 }

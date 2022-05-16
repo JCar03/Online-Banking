@@ -1,11 +1,15 @@
 package com.hcl.banking.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;
 
+@Getter
+@Setter
 @Entity
 public class SavingsAccount {
 
@@ -18,38 +22,6 @@ public class SavingsAccount {
     @OneToMany(mappedBy = "savingsAccount", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnore
     private List<SavingsTransaction> savingsTransactionList;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public int getAccountNumber() {
-        return accountNumber;
-    }
-
-    public void setAccountNumber(int accountNumber) {
-        this.accountNumber = accountNumber;
-    }
-
-    public BigDecimal getAccountBalance() {
-        return accountBalance;
-    }
-
-    public void setAccountBalance(BigDecimal accountBalance) {
-        this.accountBalance = accountBalance;
-    }
-
-    public List<SavingsTransaction> getSavingsTransactionList() {
-        return savingsTransactionList;
-    }
-
-    public void setSavingsTransactionList(List<SavingsTransaction> savingsTransactionList) {
-        this.savingsTransactionList = savingsTransactionList;
-    }
 
 
 }

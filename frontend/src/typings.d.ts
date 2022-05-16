@@ -1,2 +1,9 @@
-declare var Stripe: any;
-declare var elements: any;
+export {};
+
+declare global {
+  interface Window {
+    Stripe: any;
+    elements: any;
+    isAuthenticated: boolean;
+  }
+}

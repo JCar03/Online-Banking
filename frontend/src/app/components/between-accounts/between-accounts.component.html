@@ -1,8 +1,7 @@
-
 <div class="container main">
     <div class="row">
         <div class="col-md-6">
-            <form th:action="@{/transfer/betweenAccounts}" method="post">
+            <form [formGroup]="betweenAccountsFormGroup" (ngSubmit)="onSubmit()">
                 <div class="form-group">
                     <label for="transferFrom">1. Please select the account you would like to transfer From:</label>
                     <select class="form-control" th:value="${transferFrom}" name="transferFrom" id="transferFrom"

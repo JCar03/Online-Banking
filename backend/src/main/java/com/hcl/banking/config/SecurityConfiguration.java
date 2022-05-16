@@ -11,16 +11,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        /*
-        // protect endpoint /api/orders
-        http.authorizeRequests()
-                .antMatchers("/api/orders/**")
+
+        // protect endpoint /api/users
+/*        http.authorizeRequests()
+                .antMatchers("/api/users/**")
                 .authenticated()
                 .and()
                 .oauth2ResourceServer()
-                .jwt();
-
-         */
+                .jwt();*/
 
         // add CORS filters
         http.cors();

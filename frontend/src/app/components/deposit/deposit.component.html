@@ -1,8 +1,7 @@
-
 <div class="container main">
     <div class="row">
         <div class="col-md-6">
-            <form th:action="@{/account/deposit}" method="post">
+            <form [formGroup]="depositFormGroup" (ngSubmit)="onSubmit()">
                 <div class="form-group">
                     <label for="accountType">1. Please select the account you would like to deposit:</label>
                     <select class="form-control" th:value="${accountType}" name="accountType" id="accountType"
@@ -33,7 +32,3 @@
         </div>
     </div>
 </div>
-
-
-
-

@@ -36,15 +36,15 @@ public class TransactionServiceImpl implements TransactionService {
     private RecipientDao recipientDao;
 
 
-    public List<PrimaryTransaction> findPrimaryTransactionList(String username) {
-        User user = userService.findByUsername(username);
+    public List<PrimaryTransaction> findPrimaryTransactionList(String oktaId) {
+        User user = userService.findByOktaId(oktaId);
         List<PrimaryTransaction> primaryTransactionList = user.getPrimaryAccount().getPrimaryTransactionList();
 
         return primaryTransactionList;
     }
 
-    public List<SavingsTransaction> findSavingsTransactionList(String username) {
-        User user = userService.findByUsername(username);
+    public List<SavingsTransaction> findSavingsTransactionList(String oktaId) {
+        User user = userService.findByOktaId(oktaId);
         List<SavingsTransaction> savingsTransactionList = user.getSavingsAccount().getSavingsTransactionList();
 
         return savingsTransactionList;
@@ -93,9 +93,9 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     public List<Recipient> findRecipientList(Principal principal) {
-        String username = principal.getName();
+        String email = principal.getName();
         List<Recipient> recipientList = recipientDao.findAll().stream()
-                .filter(recipient -> username.equals(recipient.getUser().getUsername()))
+                .filter(recipient -> email.equals(recipient.getUser().getEmail()))
                 .collect(Collectors.toList());
 
         return recipientList;

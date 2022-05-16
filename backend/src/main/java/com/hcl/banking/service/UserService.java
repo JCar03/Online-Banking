@@ -1,34 +1,18 @@
 package com.hcl.banking.service;
 
 import com.hcl.banking.entity.User;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Set;
 
 
 public interface UserService {
 
-    User findByUsername(String username);
+    User findByOktaId(String oktaId);
 
-    User findByEmail(String email);
+    boolean checkUserExists(String oktaId);
 
-    boolean checkUserExists(String username, String email);
+    boolean checkOktaIdExists(String oktaId);
 
-    boolean checkUsernameExists(String username);
-
-    boolean checkEmailExists(String email);
-
-    void save(User user);
-
-    User createUser(User user);
-
-    User saveUser(User user);
-
-    List<User> findUserList();
-
-    void enableUser(String username);
-
-    void disableUser(String username);
+    void createUser(User user);
 
 }

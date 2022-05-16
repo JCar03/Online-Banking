@@ -9,6 +9,5 @@ import java.util.List;
 
 @RepositoryRestResource(collectionResourceRel = "savingsTransactions", path = "saving-transactions")
 public interface SavingsTransactionDao extends JpaRepository<SavingsTransaction, Long> {
-
     List<SavingsTransaction> findAll();
 }
